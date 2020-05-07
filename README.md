@@ -5,10 +5,10 @@ Tento program tvoří náhodná jména kombinací dvou náhodných již existuj�
 
 Program spustíte takto:
 
-cd Unix
-./a.out
+cd Random_names/Unix && ./a.out
 
 Měňte soubor seznam.txt, aby se změnila jména použitá na generaci.
+Myslím, že funguje jen Unixová verse.
 
 
 # Disclaimer
