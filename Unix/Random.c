@@ -8,6 +8,7 @@ time_t t;
 int pocetradku(FILE *fp){
 char znak[2]; znak[1]= '\0';
 int radky;
+radky = 0;
 while (1) {
 znak[0] = getc(fp);
 if (znak[0] == '\n'){radky =radky +1;}
@@ -25,7 +26,7 @@ int p;
 FILE *fa;FILE *fp;
 
 fp = fopen("seznam.txt", "r");
-p = pocetradku(fp); 
+p = pocetradku(fp);
 fclose(fp);
 fa = fopen("seznam.txt", "r");
 
@@ -51,7 +52,7 @@ printf("tímto programem jsou podle autorova skromného názoru\n");
 printf("vcelku použitelná, avšak ne vždy se to povede. Pro\n");
 printf("generování náhodných jmen zadejte počet jmen, který\n");
 printf("chcete vygenerovat a stiskněte enter. (Když nezadáte nic,\n");
-printf("vygeneruje se jen jedno. Použitá jména jsou uchovaná\n");
+printf("vygeneruje se jen jedno. Použitá jména na generování jsou uchovaná\n");
 printf("v souboru seznam.txt, který musí být ve stejné složce jako\n");
 printf("program, ale jde editovat. Když napíšete 'konec', ukončíte\n");
 printf("program. Hodně zábavy!\n");
@@ -61,16 +62,19 @@ char input[20];
 LOOP: scanf("%s", input);    int g;
 while ( (g = getchar()) != EOF && g != '\n') { }
 int pocet;
-pocet = atoi(input);
-if (pocet < 0){ 
-printf("Toto nejde, počet zvýšen na 1.\n");
-pocet = 1;}
-if (pocet == 0){
-  pocet=1;
-if (strcmp(input,"0") == 0){
-printf("Toto nejde, počet zvýšen na 1.\n");
+if ( !strcmp(input,"konec") ){
+	return 0;
 }
-else { 
+pocet = atoi(input);
+if (pocet < 0){
+	printf("Toto nejde, počet zvýšen na 1.\n");
+	pocet = 1;}
+if (pocet == 0){
+	pocet=1;
+if (strcmp(input,"0") == 0){
+	printf("Toto nejde, počet zvýšen na 1.\n");
+}
+else {
 printf("Nezadali jste číslo, generuji jedno jméno.\n");
 }
 }
